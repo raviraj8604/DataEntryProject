@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<CT.Application.Settings>
+  <Settings1>
+    <Value1 />
+    <Value2 />
+    <Value3 />
+    <Value4 />
+  </Settings1>
+  <Settings2>
+    <Value1 />
+    <Value2 />
+  </Settings2>
+  <Settings3>
+    <!--cURRENTLY tABLE-->
+    <!--<Value1>CTPL16\CYNOSUREDBS</Value1>
+    <Value2>UHJpc20=</Value2>
+    <Value3>UHJpc20=</Value3>
+    <Value4>UHJpc20jMTIz</Value4>-->
+    <!--<Value1>CTPL15\SQLExpress</Value1>-->
+    
+   <!--<Value1>20.198.99.141,1315\SQLEXPRESS<</Value1>-->
+   
+    <!--developing db (PRISM)-->
+    <!--<Value2>UFJJU00=</Value2>-->
+<!--test db (PRISMTEST)-->
+    <!--<Value2>UFJJU01UZXN0</Value2>
+    <Value3>cHJpc20=</Value3>
+    <Value4>cHJpc20xMjM=</Value4>-->
+    
+    
+    
+    <!--<Value1>20.198.99.141,1315\SQLEXPRESS</Value1>
+    <Value2>UFJJU01fREVW</Value2>
+   <Value3>cHJpc20=</Value3>
+    <Value4>cHJpc20jMTIz</Value4> --><!--psss-->
+
+
+    <Value1>PARI\SQLEXPRESS</Value1>
+    <Value2>U2NoRGF0YUVudHJ5</Value2> <!--databasename-->
+    <Value3>UEFS</Value3> <!--username-->
+    <Value4>QWRtaW5AMTIz</Value4>
+
+    
+    
+    
+
+
+    <Value5 />
+    <Value6 />
+    <Value7 />
+  </Settings3>
+  <Settings8>
+    <Value1 />
+    <Value2 />
+    <Value3 />
+    <Value4 />
+  </Settings8>
+    
+</CT.Application.Settings>
