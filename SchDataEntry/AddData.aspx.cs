@@ -32,8 +32,6 @@ namespace SchDataEntry
                 BindDropDownList(ddlCountries, "1", "Select Country");
                  BindDropDownList(ddlStates, "2", "Select Country", Convert.ToInt32( ddlCountries.SelectedValue));
                
-                ddlCountries.Items.Insert(0, new ListItem("Select Country", "0"));
-                ddlStates.Items.Insert(0, new ListItem("Select State", "0"));
             }
 
         }
