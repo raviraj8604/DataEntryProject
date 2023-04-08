@@ -28,10 +28,10 @@ namespace SchDataEntry
             {
                 ddlCountries = (e.Row.FindControl("ddlCountries") as DropDownList);
                 ddlStates = (e.Row.FindControl("ddlState") as DropDownList);
-             
+
                 BindDropDownList(ddlCountries, "1", "Select Country");
-                 BindDropDownList(ddlStates, "2", "Select Country", Convert.ToInt32( ddlCountries.SelectedValue));
-               
+                BindDropDownList(ddlStates, "2", "Select Country", Convert.ToInt32(ddlCountries.SelectedValue));
+
             }
 
         }
@@ -46,16 +46,16 @@ namespace SchDataEntry
 
             //foreach (GridViewRow row in grdDataEntry.Rows)
             //{
-                DropDownList drpstate = ((DropDownList)row.FindControl("ddlState")) as DropDownList;
-                DropDownList ddlCountries = ((DropDownList)row.FindControl("ddlCountries")) as DropDownList;
-                //DropDownList drpstate = row.FindControl("drpstate") as DropDownList;
-                BindDropDownList(drpstate, "2", "Select state",Convert.ToInt32(ddlCountries.SelectedValue));
-           // }
-          
+            DropDownList drpstate = ((DropDownList)row.FindControl("ddlState")) as DropDownList;
+            DropDownList ddlCountries = ((DropDownList)row.FindControl("ddlCountries")) as DropDownList;
+            //DropDownList drpstate = row.FindControl("drpstate") as DropDownList;
+            BindDropDownList(drpstate, "2", "Select state", Convert.ToInt32(ddlCountries.SelectedValue));
+            // }
+
         }
 
-     
-        private void BindDropDownList(DropDownList ddl, string mode, string defaultText,int CountryID=0)
+
+        private void BindDropDownList(DropDownList ddl, string mode, string defaultText, int CountryID = 0)
         {
 
             CommonData objData = new CommonData();
@@ -125,7 +125,7 @@ namespace SchDataEntry
                 Response.Write("ViewState is null");
             }
             //Set Previous Data on Postbacks  
-          SetPreviousData();
+            SetPreviousData();
         }
         private void SetPreviousData()
         {
@@ -192,7 +192,10 @@ namespace SchDataEntry
                     var data = strwtr.ToString();
 
                     CommonData objdata = new CommonData();
-                    objdata.SaveData(data, txtDate.Text);
+                    int result = objdata.SaveData(data, txtDate.Text);
+                    if (result == 1)
+                    {
+                    }
                 }
                 else
                 {
