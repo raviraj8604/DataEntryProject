@@ -161,36 +161,43 @@ namespace SchDataEntry
         {
             try
             {
-                DataSet DSApproveReject = new DataSet("dsAR");
-                DataTable DTApproveReject = new DataTable("dtAR");
-                DTApproveReject.Columns.Add(new DataColumn("EntryDate", typeof(string)));
-                DTApproveReject.Columns.Add(new DataColumn("CountryID", typeof(int)));
-                DTApproveReject.Columns.Add(new DataColumn("StateID", typeof(string)));
-                DTApproveReject.Columns.Add(new DataColumn("Name", typeof(string)));
-                DTApproveReject.Columns.Add(new DataColumn("Remarks", typeof(string)));
-               
-               
-                foreach (GridViewRow row in grdDataEntry.Rows)
+                if (!string.IsNullOrEmpty(txtDate.Text))
                 {
-                    DropDownList ddlCountries = (DropDownList)row.FindControl("ddlCountries");
-                    DropDownList ddlState = (DropDownList)row.FindControl("ddlState");
-                    TextBox txtName = (TextBox)row.FindControl("txtName");
-                    TextBox txtRemarks = (TextBox)row.FindControl("txtRemarks");
+                    DataSet DSApproveReject = new DataSet("dsAR");
+                    DataTable DTApproveReject = new DataTable("dtAR");
+                    DTApproveReject.Columns.Add(new DataColumn("EntryDate", typeof(string)));
+                    DTApproveReject.Columns.Add(new DataColumn("CountryID", typeof(int)));
+                    DTApproveReject.Columns.Add(new DataColumn("StateID", typeof(string)));
+                    DTApproveReject.Columns.Add(new DataColumn("Name", typeof(string)));
+                    DTApproveReject.Columns.Add(new DataColumn("Remarks", typeof(string)));
 
-                    if (ddlCountries.SelectedValue != "0")
+
+                    foreach (GridViewRow row in grdDataEntry.Rows)
                     {
-                        DTApproveReject.Rows.Add(txtDate.Text,
-                            ddlCountries.SelectedValue, ddlState.SelectedValue, txtName.Text, txtRemarks.Text);
-                    }
-                   
-                }
-                DSApproveReject.Tables.Add(DTApproveReject);
-                StringWriter strwtr = new StringWriter();
-                DSApproveReject.WriteXml(strwtr);
-                var data = strwtr.ToString();
+                        DropDownList ddlCountries = (DropDownList)row.FindControl("ddlCountries");
+                        DropDownList ddlState = (DropDownList)row.FindControl("ddlState");
+                        TextBox txtName = (TextBox)row.FindControl("txtName");
+                        TextBox txtRemarks = (TextBox)row.FindControl("txtRemarks");
 
-                CommonData objdata = new CommonData();
-                objdata.SaveData(data, txtDate.Text);
+                        if (ddlCountries.SelectedValue != "0" && ddlState.SelectedValue != "0")
+                        {
+                            DTApproveReject.Rows.Add(txtDate.Text,
+                                ddlCountries.SelectedValue, ddlState.SelectedValue, txtName.Text, txtRemarks.Text);
+                        }
+
+                    }
+                    DSApproveReject.Tables.Add(DTApproveReject);
+                    StringWriter strwtr = new StringWriter();
+                    DSApproveReject.WriteXml(strwtr);
+                    var data = strwtr.ToString();
+
+                    CommonData objdata = new CommonData();
+                    objdata.SaveData(data, txtDate.Text);
+                }
+                else
+                {
+                    ScriptManager.RegisterStartupScript(this, GetType(), "showalert", "alert('Please Select Date');", true);
+                }
 
             }
             catch (Exception)
